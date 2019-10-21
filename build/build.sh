@@ -9,7 +9,7 @@ DIRNAME=${OUTDIR}/${OS}-${ARCH}-${VERSION}
 FULLNAME=${DIRNAME}/${FILENAME}
 
 mkdir -p ${DIRNAME}
-
+echo $DIRNAME
 if [ "$1" = "linux" ];then
 docker run --rm -v $GOPATH:/go -w /go/src/github.com/yottachain/YTDataNode/ golang go build -o ${FULLNAME} ${MAINFILE}
 #docker run -it --rm -v `pwd`/$DIRNAME/:/src upx upx -9 /src/$FILENAME
