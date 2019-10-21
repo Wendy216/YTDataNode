@@ -11,7 +11,8 @@ FULLNAME=${DIRNAME}/${FILENAME}
 mkdir -p ${DIRNAME}
 echo $DIRNAME
 if [ "$1" = "linux" ];then
-docker run --rm -v $GOPATH:/go -w /go/src/github.com/yottachain/YTDataNode/ golang go build -o ${FULLNAME} ${MAINFILE}
+test -t 1 && USE_TTY="-t" 
+docker run ${USE_TTY} --rm -v $GOPATH:/go -w /go/src/github.com/yottachain/YTDataNode/ golang go build -o ${FULLNAME} ${MAINFILE}
 #docker run -it --rm -v `pwd`/$DIRNAME/:/src upx upx -9 /src/$FILENAME
 elif [ "$1" = "windows" ];then
 wget http://10.211.55.3:6001/${FILENAME}.exe -o ${FULLNAME}.exe
