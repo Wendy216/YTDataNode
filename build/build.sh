@@ -8,7 +8,7 @@ MAINFILE=cmd/cmd.go
 DIRNAME=${OUTDIR}/${OS}-${ARCH}-${VERSION}
 FULLNAME=${DIRNAME}/${FILENAME}
 
-mkdir ${DIRNAME}
+mkdir -p ${DIRNAME}
 
 if [ "$1" = "linux" ];then
 docker run  --rm -v $GOPATH:/go -w /go/src/github.com/yottachain/YTDataNode/ golang go build -o ${FULLNAME} ${MAINFILE}
