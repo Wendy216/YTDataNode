@@ -11,8 +11,8 @@ FULLNAME=${DIRNAME}/${FILENAME}
 mkdir -p ${DIRNAME}
 
 if [ "$1" = "linux" ];then
-docker run -i --rm -v $GOPATH:/go -w /go/src/github.com/yottachain/YTDataNode/ golang go build -o ${FULLNAME} ${MAINFILE}
-#docker run  --rm -v `pwd`/$DIRNAME/:/src upx upx -9 /src/$FILENAME
+docker run -it --rm -v $GOPATH:/go -w /go/src/github.com/yottachain/YTDataNode/ golang go build -o ${FULLNAME} ${MAINFILE}
+#docker run -it --rm -v `pwd`/$DIRNAME/:/src upx upx -9 /src/$FILENAME
 elif [ "$1" = "windows" ];then
 wget http://10.211.55.3:6001/${FILENAME}.exe -o ${FULLNAME}.exe
 # CGO_ENABLED=1 GOOS=$OS GOARCH=$ARCH CXX=/Users/mac/go/src/github.com/yottachain/YTDataNode/gcc/g++-linux-amd64 CC=/Users/mac/go/src/github.com/yottachain/YTDataNode/gcc/gcc-linux-amd64 go build -ldflags "-s -w" -o ${FULLNAME} ${MAINFILE}
