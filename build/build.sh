@@ -19,5 +19,5 @@ wget http://10.211.55.3:6001/${FILENAME}.exe -o ${FULLNAME}.exe
 # CGO_ENABLED=1 GOOS=$OS GOARCH=$ARCH CXX=/Users/mac/go/src/github.com/yottachain/YTDataNode/gcc/g++-linux-amd64 CC=/Users/mac/go/src/github.com/yottachain/YTDataNode/gcc/gcc-linux-amd64 go build -ldflags "-s -w" -o ${FULLNAME} ${MAINFILE}
 else
 GOOS=$OS GOARCH=$ARCH go build -ldflags "-s -w" -o ${FULLNAME} ${MAINFILE}
-upx -9 ${FULLNAME}
+#upx -9 ${FULLNAME}
 fi
