@@ -1,5 +1,5 @@
-OS=$1
-ARCH=$2
+OS=$(uname)
+ARCH=amd64
 
 VERSION=0.0.1
 FILENAME=ytfs-node
@@ -10,7 +10,7 @@ FULLNAME=${DIRNAME}/${FILENAME}
 
 mkdir -p ${DIRNAME}
 echo $DIRNAME
-if [ "$1" = "linux" ];then 
+if [ "$1" = "Linux" ];then 
 go build -o ${FULLNAME} ${MAINFILE}
 #docker run -i --rm -v $GOPATH:/go -w /go/src/github.com/yottachain/YTDataNode/ golang go build -o ${FULLNAME} ${MAINFILE}
 #docker run -it --rm -v `pwd`/$DIRNAME/:/src upx upx -9 /src/$FILENAME
